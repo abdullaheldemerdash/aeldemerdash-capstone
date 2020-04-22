@@ -26,6 +26,6 @@ You Can Launch EC2 Instance to Install Jenkins, Add **BlueOcean** Plugin and **K
 
 Build my simple code of NGINX web page, Lint it, use the Aqua SecurityScanner to scan the code, build the html artifcat and upload it to AWS S3
 
-### 3. Deploy Blue/Gree pipelines
+### 3. Deploy Blue/Green pipelines
 
 Deploy the wee app to blue deployment instances then to the green one
