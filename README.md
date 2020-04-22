@@ -1,23 +1,31 @@
-## ND9991 - C3 - Build CI/CD Pipelines, Monitoring, and Logging
-This repository provides the supporting material for the "ND9991 Cloud DevOps Nanodegree - C3 - Build CI/CD Pipelines, Monitoring, and Logging" course. This repo has two more branches, other than the master branch. 
+## Capstone Project Intro
 
-* Blue/Green branch corresponds to the Blue/Green deployment strategy. Make sure that you checkout branches "blue" and "green" to see how blue/green deployment was performed in the course.
-* You can create any more branches for a multiple pipeline set-up, as directed in the demonstration video. 
+This is my Udacity Cloud DevOps Capstone project. In this project I created a CI/CD pipeline for a basic website which will be deployed to a cluster in AWS Kops
 
-### Dependencies
-##### 1. AWS account
-You would require to have an AWS account to be able to build cloud infrastructure. Particularly, you will need to create S3 buckets, EC2 instances, and IAM users.
+## Install
 
-#### 2. Jenkins on Ubuntu VM
-As a part of the project, you will need to install Jenkins and a few plugins to assist your requirements, as mentioned in the "Jenkins Pipelines on AWS --> Project Details" page in the classroom. 
+To be able to use this CI/CD pipeline we will need:
+- Jenkins
+- kops
+- Ansible
+- Vagrant
 
-## Prerequisite
-1. A little knowledge of basic commands in Unix terminal.
-1. Understanding of software testing frameworks - JMeter and JUnit
-1. Understanding of deployment strategies 
+1. To install Jenkins please follow this guide http://jenkins.io/doc/book/installing/
+2. To install Vagrant please follow this guide https://www.vagrantup.com/downloads.html
 
 
+### 1. Create AWS Cops clusters Using Vagrant
 
+You can follow **ReadMe** file in **Vagrant-Kops-Ansible** Directory To Install AWS Kops Cluster Using Vagrant and Ansible.
 
+### 2. Deploy Jenkins EC2 Instace.
 
+You Can Launch EC2 Instance to Install Jenkins, Add **BlueOcean** Plugin and **Kubernetes Continuous Deploy** Plugin and **Your Docker Hub** Credentials and **kubeconfig** Credentials.
 
+### 3. Build Pipeline
+
+Build my simple code of NGINX web page, Lint it, use the Aqua SecurityScanner to scan the code, build the html artifcat and upload it to AWS S3
+
+### 3. Deploy Blue/Gree pipelines
+
+Deploy the wee app to blue deployment instances then to the green one
