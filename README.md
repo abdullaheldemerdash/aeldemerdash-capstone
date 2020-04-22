@@ -1,4 +1,4 @@
-## Capstone Project Intro
+# Capstone Project Intro
 
 This is my Udacity Cloud DevOps Capstone project. In this project I created a CI/CD pipeline for a basic website which will be deployed to a cluster in AWS Kops
 
@@ -28,4 +28,4 @@ Build my simple code of NGINX web page, Lint it, use the Aqua SecurityScanner to
 
 ### 3. Deploy Blue/Green pipelines
 
-Deploy the wee app to blue deployment instances then to the green one
+Deploy the web app to blue deployment instances then to the green one
