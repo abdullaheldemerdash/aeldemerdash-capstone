@@ -1,32 +1,45 @@
 pipeline {
-     agent any
-     stages {
-         stage('Build') {
-             steps {
-                 sh 'echo "Hello World"'
-                 sh '''
-                     echo "Multiline shell steps works too"
-                     ls -lah
-                 '''
-             }
-         }
-         stage('Lint HTML') {
-              steps {
-                  sh 'tidy -q -e *.html'
-              }
-         }
-         stage('Security Scan') {
+	agent any
+
+   	environment {
+        DOCKER_IMAGE_NAME = "aeldemerdash/udacity-capstone"
+	}
+
+	stages {
+
+		stage('Lint HTML') {
+			steps {
+				sh 'tidy -q -e *.html'
+			}
+		}
+		
+          stage('Security Scan') {
               steps { 
                  aquaMicroscanner imageName: 'alpine:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
               }
-         }      
-         stage('Upload to AWS') {
-              steps {
-                  withAWS(region:'us-east-2',credentials:'aws-static') {
-                  sh 'echo "Uploading content with AWS creds"'
-                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'static-jenkins-pipeline-aeldemerdash')
-                  }
-              }
-         }
+         }    
+		
+          stage('Build Docker Image') {
+            		steps {
+                		script {
+                    			app = docker.build(DOCKER_IMAGE_NAME)
+                    			app.inside {
+                        			sh 'echo Hello, Nginx!'
+                    			}
+                		}
+            		}
+
+		}
+
+       		 stage('Push Docker Image') {
+            		steps {
+                		script {
+                    			docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
+                        		app.push("${env.BUILD_NUMBER}")
+                        		app.push("latest")
+                    			}
+                		}
+            		}
+        	}
      }
 }
