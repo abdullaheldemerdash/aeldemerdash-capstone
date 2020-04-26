@@ -8,15 +8,10 @@ To be able to use this CI/CD pipeline we will need:
 - Jenkins
 - kops
 - Ansible
-- Vagrant
 
-1. To install Jenkins please follow this guide http://jenkins.io/doc/book/installing/
-2. To install Vagrant please follow this guide https://www.vagrantup.com/downloads.html
+### 1. Create AWS Cops cluster using Ansible
 
-
-### 1. Create AWS Cops clusters Using Vagrant
-
-You can follow **ReadMe** file in **Vagrant-Kops-Ansible** Directory To Install AWS Kops Cluster Using Vagrant and Ansible.
+You can follow **ReadMe** file in **Kops-Ansible** Directory To Install AWS Kops Cluster Using Ansible.
 
 ### 2. Set up Jenkins EC2 Instace.
 
