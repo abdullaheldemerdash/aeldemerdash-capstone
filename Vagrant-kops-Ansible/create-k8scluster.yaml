@@ -1,4 +1,3 @@
-  
 ---
 - name: Setup K8s Cluster nodes on AWS by kops and Ansible
   hosts: all
