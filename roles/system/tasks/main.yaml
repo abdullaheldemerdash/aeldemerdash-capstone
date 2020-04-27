@@ -1,0 +1,50 @@
+---
+- name: Install EPEL Repo
+  yum: name=epel-release state=present
+
+- name: Update The System Packages
+  yum: name=* state=latest update_cache=yes
+
+- name: Ensure NTP (for time synchronization) is installed.
+  yum: name=ntp state=present
+
+- name: Ensure NTP is running.
+  service: name=ntpd state=started enabled=yes
+
+- name: required packages
+  yum: name={{ item }} state=present
+  with_items:
+      - vim
+      - wget
+      - git
+      - python-pip
+
+- name: Install Boto
+  pip: name=boto state=latest
+
+- name: Install AWS CLI
+  pip: name=awscli state=latest
+
+- name: Create .aws directory under user home for AWS CLI config 
+  file:  
+    path: /home/vagrant/.aws
+    state: directory
+    owner: vagrant
+    group: vagrant
+    mode: 0755
+
+- name: Copy AWS CLI config and credentials to machine using templates
+  template:  
+    src: "roles/system/templates/{{item}}.j2"
+    dest: /home/vagrant/.aws/{{item}}
+    mode: 0664
+    owner: vagrant
+    group: vagrant
+  with_items:
+    - config
+    - credentials
+
+- name: Generate SSH keys
+  shell: ssh-keygen -b 2048 -t rsa -f /home/vagrant/.ssh/id_rsa -q -N ""
+  args:
+    creates: /home/vagrant/.ssh/id_rsa
