@@ -1,0 +1,39 @@
+---
+#AWS Config
+aws_region: us-east-2	
+
+aws_access_key: xxxxxxxxxxxx
+
+aws_secret_key: xxxxxxxxxxxx
+
+
+#kubectl Config
+kubectl_download_path: "https://storage.googleapis.com/kubernetes-release/release/v1.14.0/bin/linux/amd64/kubectl"
+
+
+#kops Config
+kops_download_path: "https://github.com/kubernetes/kops/releases/download/1.12.1/kops-linux-amd64"
+
+
+#Cluster Config
+cluster_name: kuberenetes.test.com
+
+state_store: s3://xxxxxxxxxxxx
+
+aws_zones: us-east-2a,us-east-2b,us-east-2c
+
+dns_zone: kubernetes.test.com
+
+master_size: t2.micro
+
+node_size: t2.micro
+
+node_count: 2
+
+
+#Tags
+tag_owner: Abdallah Eldemerdash
+
+tag_application: MyApp
+
+tag_environment: Development
