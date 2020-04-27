@@ -1,0 +1,23 @@
+
+---
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: blue
+  labels:
+    app: blue
+spec:
+  replicas: 1
+  selector:
+    app: blue
+  template:
+    metadata:
+      labels:
+        app: blue
+    spec:
+      containers:
+      - name: blue
+        image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
+        ports:
+        - name: http-server
+          containerPort: 80
