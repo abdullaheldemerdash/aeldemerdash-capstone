@@ -46,7 +46,7 @@ pipeline {
         	stage('Deploy blue container') {
             		steps {
                 		kubernetesDeploy(
-                    			
+                    			kubeconfigId: 'kubeconfig',
                     			configs: 'blue-controller.yaml',
                     			enableConfigSubstitution: true
                 		)
@@ -57,7 +57,7 @@ pipeline {
                 stage('Deploy green container') {
                         steps {
                                 kubernetesDeploy(
-                                        
+                                        kubeconfigId: 'kubeconfig',
                                         configs: 'green-controller.yaml',
                                         enableConfigSubstitution: true
                                 )
@@ -68,7 +68,7 @@ pipeline {
 		stage('Create the service in the cluster, redirect to blue') {
                         steps {
                                 kubernetesDeploy(
-                                     
+                                        kubeconfigId: 'kubeconfig',
                                         configs: 'blue-service.yaml',
                                         enableConfigSubstitution: true
                                 )
@@ -84,7 +84,7 @@ pipeline {
                 stage('Create the service in the cluster, redirect to green') {
                         steps {
                                 kubernetesDeploy(
-                                       
+                                        kubeconfigId: 'kubeconfig',
                                         configs: 'green-service.yaml',
                                         enableConfigSubstitution: true
                                 )
