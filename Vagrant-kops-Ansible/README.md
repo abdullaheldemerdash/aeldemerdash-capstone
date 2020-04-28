@@ -5,23 +5,23 @@ This repository contains the tools for deploying Kubernetes cluster in Amazon AW
 
 1. Install Vagrant and VirtualBox in you machine.
 
-https://www.vagrantup.com/downloads.html
+    https://www.vagrantup.com/downloads.html
 
-https://www.virtualbox.org/wiki/Downloads
+    https://www.virtualbox.org/wiki/Downloads
 
 
 2. Access your AWS account from console and create The following 
 
--IAM user with Admin permission "save your secrect key and access key"
+  -IAM user with Admin permission "save your secrect key and access key"
 
--Add "Hosted zone" by Route53 service to add your domain.
+  -Add "Hosted zone" by Route53 service to add your domain.
 
 
 
 3. Clone The repo to  your Local Machine : https://github.com/abdullaheldemerdash/aeldemerdash-capstone
 
--Change The following  Vars to match your infrastructure in "group_vars/all" [Access Key - Secret Key - Bucket Name - cluster_name - DNS Zones]
+    -Change The following  Vars to match your infrastructure in "group_vars/all" [Access Key - Secret Key - Bucket Name - cluster_name - DNS Zones]
 
--In repo and launch the Vagrantfile through these commands :"vagrant init"  then "vagrant up"
+    -In repo and launch the Vagrantfile through these commands :"vagrant init"  then "vagrant up"
 
--ssh to vagrant machine through this command : "vagrant ssh"
+    -ssh to vagrant machine through this command : "vagrant ssh"
