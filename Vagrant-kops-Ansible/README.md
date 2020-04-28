@@ -18,7 +18,7 @@ https://www.virtualbox.org/wiki/Downloads
 
 
 
-3. Clone The repo to  your Local Machine : https://github.com/aeldemerdash-capstone/vagrant-kops-ansible 
+3. Clone The repo to  your Local Machine : https://github.com/abdullaheldemerdash/aeldemerdash-capstone
 
 -Change The following  Vars to match your infrastructure in "group_vars/all" [Access Key - Secret Key - Bucket Name - cluster_name - DNS Zones]
 
