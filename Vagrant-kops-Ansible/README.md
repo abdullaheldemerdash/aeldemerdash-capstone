@@ -12,9 +12,9 @@ This repository contains the tools for deploying Kubernetes cluster in Amazon AW
 
 2. Access your AWS account from console and create The following 
 
-  -IAM user with Admin permission "save your secrect key and access key"
+          -IAM user with Admin permission "save your secrect key and access key"
 
-  -Add "Hosted zone" by Route53 service to add your domain.
+          -Add "Hosted zone" by Route53 service to add your domain.
 
 
 
