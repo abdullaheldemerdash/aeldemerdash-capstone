@@ -16,13 +16,13 @@ kops_download_path: "https://github.com/kubernetes/kops/releases/download/1.12.1
 
 
 #Cluster Config
-cluster_name: kuberenetes.test.com
+cluster_name: k8s.demerdashi.com
 
 state_store: s3://xxxxxxxxxxxx
 
 aws_zones: us-east-2a,us-east-2b,us-east-2c
 
-dns_zone: kubernetes.test.com
+dns_zone: k8s.demerdashi.com
 
 master_size: t2.micro
 
