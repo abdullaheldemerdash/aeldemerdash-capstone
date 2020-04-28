@@ -10,8 +10,8 @@ To be able to use this CI/CD pipeline we will need:
 - Ansible
 - Vagrant
 
-To install Jenkins please follow this guide http://jenkins.io/doc/book/installing/
-To install Vagrant please follow this guide https://www.vagrantup.com/downloads.html
+To install Jenkins please follow this guide http://jenkins.io/doc/book/installing/.
+To install Vagrant please follow this guide https://www.vagrantup.com/downloads.html.
 
 ### 1. Create AWS Cops cluster using Ansible
 
