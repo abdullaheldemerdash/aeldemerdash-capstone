@@ -20,7 +20,10 @@
       - python-pip
 
 - name: Install Boto
-  pip: name=boto state=latest
+  pip: name=boto3 state=latest
+
+- name: Install Botocore
+  pip: name=botocore state=latest
 
 - name: Install AWS CLI
   pip: name=awscli state=latest
